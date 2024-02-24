@@ -68,7 +68,7 @@ class AllRecipes(object):
 
 	@staticmethod
 	def _get_name(soup):
-		return soup.find("h1", {"id": "article-heading_2-0"}).get_text().strip(' \t\n\r')
+		return soup.find("h1", {"class": "article-heading"}).get_text().strip(' \t\n\r')
 
 	@staticmethod
 	def _get_rating(soup):
@@ -84,7 +84,7 @@ class AllRecipes(object):
 
 	@staticmethod
 	def _get_times_data(soup, text):
-		return soup.find("div", {"id": "recipe-details_1-0"}).find("div", text=text).parent.find("div", {"class": "mntl-recipe-details__value"}).get_text().strip(' \t\n\r')
+		return soup.find("div", {"id": "mntl-recipe-details_1-0"}).find("div", text=text).parent.find("div", {"class": "mntl-recipe-details__value"}).get_text().strip(' \t\n\r')
 
 	@classmethod
 	def _get_prep_time(cls, soup):
